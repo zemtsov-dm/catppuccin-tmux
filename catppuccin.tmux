@@ -99,6 +99,10 @@ main() {
   #readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #{b:pane_current_path} "
   readonly show_directory_in_window_status="#[fg=$thm_bg,bg=$thm_blue] #I #[fg=$thm_fg,bg=$thm_gray] #W "
 
+  local show_directory_in_window_status_current_no_path
+  #readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
+  readonly show_directory_in_window_status_current="#[fg=colour232,bg=$thm_orange] #I #[fg=colour255,bg=colour237] #W "
+
   local show_directory_in_window_status_current
   #readonly show_directory_in_window_status_current="#[fg=$thm_bg,bg=$thm_orange] #I #[fg=$thm_fg,bg=$thm_bg] #{b:pane_current_path} "
   readonly show_directory_in_window_status_current="#[fg=colour232,bg=$thm_orange] #I #[fg=colour255,bg=colour237] #(echo '#{pane_current_path}' | rev | cut -d'/' -f-2 | rev) "
@@ -135,7 +139,7 @@ main() {
   if [[ "${wt_enabled}" == "on" ]]; then
     right_column1=$show_directory
     window_status_format=$show_window_in_window_status
-    window_status_current_format=$show_window_in_window_status_current
+    window_status_current_format=$show_directory_in_window_status_current_no_path
   fi
 
   if [[ "${user}" == "on" ]]; then
